@@ -20,10 +20,6 @@ async def process_payment(request: Request):
     logger.info(f"Processing payment for user: {user_data.get('user_id')}")
     
     try:
-        if "billing_address" not in user_data:
-            logger.error("Missing billing address, failing payment")
-            raise HTTPException(status_code=400, detail="Missing billing address")
-            
         address = user_data["billing_address"]
         card_number = user_data.get("card_number")
         
