@@ -41,7 +41,7 @@ def create_order(req: OrderRequest):
         
         try:
             cursor.execute(
-                "INSERT INTO orders (user_id, product_id, status) VALUES (?, ?, ?)",
+                "INSERT INTO orders (user_id, item_id, status) VALUES (?, ?, ?)",
                 (req.user_id, req.product_id, "COMPLETED")
             )
             conn.commit()
